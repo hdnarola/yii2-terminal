@@ -12,18 +12,20 @@ class JqueryTerminalAsset extends AssetBundle
 {
     public $sourcePath = '@bower';
 
+    // set POS_END as jquery could be loaded at POS_END & jquery is required here
     public $js = YII_ENV_DEV ? [
-        ['jquery.terminal/js/jquery.terminal.js', 'position' => \yii\web\View::POS_HEAD],
-        ['jquery.terminal/js/pipe.js', 'position' => \yii\web\View::POS_HEAD],
-        ['jquery-ui/jquery-ui.js', 'position' => \yii\web\View::POS_HEAD]
+        ['jquery.terminal/js/jquery.terminal.js', 'position' => \yii\web\View::POS_END],
+        ['jquery.terminal/js/pipe.js', 'position' => \yii\web\View::POS_END],
+        ['jquery-ui/jquery-ui.js', 'position' => \yii\web\View::POS_END]
     ] : [
-        ['jquery.terminal/js/jquery.terminal.min.js', 'position' => \yii\web\View::POS_HEAD],
-        ['jquery.terminal/js/pipe.js', 'position' => \yii\web\View::POS_HEAD],
-        ['jquery-ui/jquery-ui.min.js', 'position' => \yii\web\View::POS_HEAD]
+        ['jquery.terminal/js/jquery.terminal.min.js', 'position' => \yii\web\View::POS_END],
+        ['jquery.terminal/js/pipe.js', 'position' => \yii\web\View::POS_END],
+        ['jquery-ui/jquery-ui.min.js', 'position' => \yii\web\View::POS_END]
     ];
 
+    // set jquery.terminal/ in path as css stays there
     public $css = [
-        YII_ENV_DEV ? 'css/jquery.terminal.css' : 'css/jquery.terminal.min.css',
+        YII_ENV_DEV ? 'jquery.terminal/css/jquery.terminal.css' : 'jquery.terminal/css/jquery.terminal.min.css',
     ];
 
     public $depends = [
